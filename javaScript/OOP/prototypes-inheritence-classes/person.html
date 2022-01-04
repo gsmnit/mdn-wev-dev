@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Object-oriented JavaScript example</title>
+  </head>
+
+  <body>
+    <p>This example requires you to enter commands in your browser's JavaScript console (see <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What are browser developer tools</a> for more information).</p>
+
+  </body>
+    <script>
+    class Person{
+        constructor(first, last, age, gender,interests){
+            this.name = {
+                first,
+                last,
+            };
+            this.age = age;
+            this.gender = gender;
+            this.interests = interests;
+        }
+
+        greeting() {
+            console.log(`Hi! I'm ${this.name.first}`);
+        };
+    
+        farewell() {
+            console.log(`${this.name.first} has left the building. Bye for now!`);
+        };
+    }
+
+    let person1 = new Person("ganpat","singh",22,"male",["coding","engineering"]);
+    person1.greeting();
+    person1.farewell();
+
+    class Teacher extends Person{
+        constructor(first, last, age, gender, interests, subject, grade){
+            super(first,last,age,gender,interests);
+            this._subject = subject;
+            this.grade = grade;
+        }
+        get subject(){
+            return this._subject;
+        }
+
+        set subject(newSubject){
+            return this._subject = newSubject;
+        }
+    }
+
+    let teacher = new Teacher("deepa", "gehlot", 19, "female", ["music","selfie"], "math","A");
+
+    </script>
+</html>
